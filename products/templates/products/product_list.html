@@ -923,13 +923,13 @@
 
 
                         
-    
+                        {% for product in product_list  %}
                             
                             <div class="col">
                                 <div class="product-card">
                                     <div class="product-media">
                                         <div class="product-label">
-                                            <label class="label-text sale">sale</label>
+                                            <label class="label-text sale">  {{product.flag}} </label>
                                         </div>
                                         <button class="product-wish wish">
                                             <i class="fas fa-heart"></i>
@@ -943,9 +943,6 @@
                                             <a title="Product View" href="#" class="fas fa-eye" data-bs-toggle="modal" data-bs-target="#product-view"></a>
                                         </div>
                                     </div>
-                        
-                      {% for pro in product_list  %}
-    
                                     <div class="product-content">
                                         <div class="product-rating">
                                             <i class="active icofont-star"></i>
@@ -964,7 +961,7 @@
                                         </h6>
                                         <button class="product-add" title="Add to Cart">
                                             <i class="fas fa-shopping-basket"></i>
-                                            <span>add   to me</span>
+                                            <span>add  </span>
                                         </button>
                                         <div class="product-action">
                                             <button class="action-minus" title="Quantity Minus"><i class="icofont-minus"></i></button>

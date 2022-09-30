@@ -7,6 +7,18 @@ from django.db.models import Count
 # Create your list views here.
 class ProductList(ListView):
       model = Product
+
+class ProductDetail(DetailView):
+     model = Product
+     
+
+     def get_context_data(self, **kwargs):
+        context = super().get_context_data( **kwargs)
+        myproduct=self.get_object() 
+        context["images"] = ProductImages.objects.filter(product=myproduct)
+        context["related"] = Product.objects.filter(category=myproduct.category)         
+        return context
+
 #------------------------
 class BrandList(ListView):
       model = Brand
@@ -31,17 +43,9 @@ class BrandDetail(DetailView):
 class CategoryList(ListView):
       model = Category
 
-
-
-
-# Create your detail views here.
-class ProductDetail(DetailView):
-     model = Product
-     
-
-     def get_context_data(self, **kwargs):
-        context = super().get_context_data( **kwargs)
-        myproduct=self.get_object() 
-        context["images"] = ProductImages.objects.filter(product=myproduct)
-        context["related"] = Product.objects.filter(category=myproduct.category)         
+      def get_context_data(self,  **kwargs):
+        context = super().get_context_data( **kwargs)  
+        context["category"] = Category.objects.all().annotate(product_count=Count('product_category'))       
         return context
+
+
