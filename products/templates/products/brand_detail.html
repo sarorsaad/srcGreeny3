@@ -1,5 +1,14 @@
 
 {%   extends 'base.html' %}
+
+
+{% load static %}
+
+{%  block mystatic %}
+<link rel="stylesheet" href="{% static 'css/brand-single.css' %}">
+{%  endblock mystatic %}
+
+
 {%  block content %}
 
 

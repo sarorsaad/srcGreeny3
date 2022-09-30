@@ -1,4 +1,12 @@
 {% extends "base.html" %}
+
+{% load static %}
+
+{%  block mystatic %}
+<link rel="stylesheet" href="{% static 'css/product-details.css' %}">
+{%  endblock mystatic %}
+
+
 {% block content %}
         <section class="single-banner inner-section" style="background: url(images/single-banner.jpg) no-repeat center;">
             <div class="container">
@@ -28,14 +36,14 @@
                                 <label class="details-label off">-10%</label>
                             </div>
                             <ul class="details-preview"> 
-                             {% for image in images %}
+                                {% for image in images %}
                                 <li><img src=" {{image.image.url}} " alt="product"></li>
                                {% endfor %}
 
                             </ul>
                             <ul class="details-thumb">
                                 {% for image in images %}
-                                <li><img src=" {{image.image.url}} " alt="product"></li>
+                                <li><img src="{{image.image.url}}" alt="product"></li>
                                {% endfor %}
                                
                             </ul>

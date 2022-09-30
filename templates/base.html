@@ -45,11 +45,19 @@
 
         <!-- CUSTOM -->
         <link rel="stylesheet" href="{% static 'css/main.css' %}">
+        
+        
+        {%  block mystatic %}
+        
         <link rel="stylesheet" href="{% static 'css/index.css' %}">
+        
+        {%  endblock mystatic %}
         <!-- mystatic -->
-        <link rel="stylesheet" href="{% static 'css/product-details.css' %}">
 
-        <link rel="stylesheet" href="{% static 'css/brand-single.css' %}">
+
+       
+
+       
         <!--=====================================
                     CSS LINK PART END
         =======================================-->
@@ -302,7 +310,7 @@
                                     </div>
                                 </li>
                                 <li class="navbar-item dropdown">
-                                    <a class="navbar-link " href="#">brands</a>
+                                    <a class="navbar-link " href=" {% url 'products:brand_list'  %}  ">brands</a>
                             
                                 <li class="navbar-item dropdown">
                                     <a class="navbar-link " href="#">orders</a>
