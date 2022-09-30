@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django_summernote', 
 
     'products',
+    'settings',
 ]
 
 MIDDLEWARE = [
@@ -66,6 +67,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'settings.company_context_processors.get_company_info',
             ],
         },
     },
