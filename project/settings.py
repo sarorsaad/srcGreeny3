@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'accounts',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -39,9 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     "taggit",
     'django_summernote', 
+    'django_countries',
 
     'products',
     'settings',
+  
 ]
 
 MIDDLEWARE = [
@@ -68,6 +71,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'settings.company_context_processors.get_company_info',
+                'accounts.user_context_processor.get_profile',
             ],
         },
     },
@@ -136,3 +140,14 @@ STATICFILES_DIRS = [
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_ROOT = BASE_DIR / 'media' 
 MEDIA_URL = '/media/'
+
+
+AUTHENTICATION_BACKENDS = ['accounts.backends.EmailBackends']
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'sarorsaad@gmail.com'
+EMAIL_HOST_PASSWORD = 'wubghqaqwxrpvkvx'
